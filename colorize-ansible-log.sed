@@ -25,6 +25,12 @@
   s~\b(skip)(ping|ped|)([:=])~\x1B[94m\1\3\x1B[0m~g
   s~(=)(\x1B\[0m)~\2\1~g
 
+  /, *"[a-z]+_lines": \[/{
+    s~(,) *("[a-z]+_lines": \[\],?)~\1\n   \2\n~g
+    s~(,) *("[a-z]+_lines": \[")~\1\n   \2~g
+    s~", "~",\n    "~g
+  }
+
   p
 : regular_next
   n
